@@ -6,9 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 	<link href="https://ai-public.mastergo.com/gen_page/tailwind-custom.css" rel="stylesheet" />
-
-
-
 	<script
 		src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
 	<script src="https://ai-public.mastergo.com/gen_page/tailwind-config.min.js" data-color="#D20000"
@@ -96,7 +93,7 @@
 				<img id="spicy-strip" src="img/s1_latiao.svg" alt="辣条开始"
 					style="width: 25vw; position: fixed; top: 120%; left: 50%; transform: translate(-50%, -50%);">
 				<script>
-					(function() {
+					(function () {
 						// 初始化 ScrollMagic 控制器
 						var controller = new ScrollMagic.Controller();
 
@@ -126,7 +123,7 @@
 				<div class="line">甚至带动一个企业的上市</div>
 
 				<script>
-					(function() {
+					(function () {
 						// 初始化 ScrollMagic 控制器
 						var controller = new ScrollMagic.Controller();
 
@@ -134,7 +131,8 @@
 						var tween = gsap.timeline();
 						tween.fromTo(".line", { opacity: 0 }, { opacity: 1, duration: 1, stagger: 0.5 })
 							.to(".line", { opacity: 0, duration: 1, stagger: 0.5, delay: 0.5 }, 0.5)
-							.to(".line:last-child", { opacity: 1, duration: 1 }, "-=1");
+						// .to(".line:last-child", { opacity: 1, duration: 1 }, "-=1");
+
 
 						// 创建 ScrollMagic 场景
 						var scene = new ScrollMagic.Scene({
@@ -152,7 +150,7 @@
 					<img class="zuofang" src="img/s1_zuofang.png" alt="作坊" style="width: 40vw; opacity: 0;">
 					<img class="zuofang" src="img/s1_factory.png" alt="工厂" style="width: 45vw; opacity: 0;">
 					<script>
-						(function() {
+						(function () {
 							// 初始化 ScrollMagic 控制器
 							var controller = new ScrollMagic.Controller();
 
@@ -181,78 +179,81 @@
 
 			<section id="origin" class="flex flex-col items-center justify-center">
 				<div style="height: 50vh;"></div>
-				<img class="line_2" src="img/s2_title.svg" alt="诞生" style="width: 40vw; opacity: 0;">
-				<div style="height: 10vh;"></div>
-				<div class="line_2" style="text-align: center; opacity: 0; font-size: 20px;">我诞生于一场湿漉漉的“想象”</div>
-				<div style="height: 10vh;"></div>
+				<img class="line_2 line" src="img/s2_title.svg" alt="诞生" style="width: 40vw; opacity: 0;">
+				<div style="height: 50vh;"></div>
+				<div class="line_2 line" style="text-align: center; opacity: 0;">我诞生于一场湿漉漉的“想象”</div>
+				<div style="height: 50vh;"></div>
+				<div class="line_2 line" style="text-align: center; opacity: 0;">1998年,受厄尔尼诺现象影响,
+					<br>长江流域爆发大规模洪水,湖南省平江县受灾严重
+				</div>
+				<div style="height: 50vh;"></div>
+				<div class="line_2 line" style="text-align: center; opacity: 0;">平江县最大的产业酱干的原料大豆, <br>大幅度减产,生意难以为继</div>
+				<script>
+					(function () {
+						// 初始化 ScrollMagic 控制器
+						var controller = new ScrollMagic.Controller();
 
-				<div class="line_2" style="text-align: center; opacity: 0; font-size: 20px;">1998年,受厄尔尼诺现象影响,长江流域爆发大规模洪水,湖南省平江县受灾严重</div>	
-				<div style="height: 10vh;"></div>
+						// 使用 GSAP 的 staggerFromTo 创建动画
+						var tween = gsap.timeline();
+						tween.fromTo(".line_2", { opacity: 0 }, { opacity: 1, duration: 1, stagger: 1 })
+							.to(".line_2", { opacity: 0, duration: 1, stagger: 1, delay: 1 }, 1);
+						// 创建 ScrollMagic 场景
+						var scene = new ScrollMagic.Scene({
+							triggerElement: "#origin",
+							duration: 1800,
+							offset: 300 // 添加 offset，延迟一定距离触发
+						})
+							.setTween(tween)
+							.addIndicators() // 添加指示器（需要插件）
+							.addTo(controller);
+					})();
+				</script>
 
-				<div class="line_2" style="text-align: center; opacity: 0; font-size: 20px;">平江县最大的产业酱干的原料大豆,大幅度减产,生意难以为继</div>
-		</div>
-		<script>
-			(function() {
-				// 初始化 ScrollMagic 控制器
-				var controller = new ScrollMagic.Controller();
+				<div style="display: flex; justify-content: center; gap: 50vw; transform: translateY(-250px);"
+					id="chanliangid">
+					<img class="chanliang" src="img/s2_面积产量.svg" style="width: 20vw">
+					<img class="chanliang" src="img/s2_洪水中大豆产量.svg" style="width: 20vw">
+				</div>
+				<div style="height: 20vh;"></div>
+				<script>
+					(function () {
+						// 初始化 ScrollMagic 控制器
+						var controller = new ScrollMagic.Controller();
+						// 创建 GSAP 动画，使用 stagger
+						var tween = gsap.fromTo(".chanliang", { opacity: 0 }, { opacity: 1, duration: 1, stagger: 0.5 });
 
-				// 使用 GSAP 的 staggerFromTo 创建动画
-				var tween = gsap.timeline();
-				tween.fromTo(".line_2", { opacity: 0 }, { opacity: 1, duration: 1, stagger: 1 })
-					.to(".line_2", { opacity: 0, duration: 1, stagger: 1, delay: 1 }, 1);
-				// 创建 ScrollMagic 场景
-				var scene = new ScrollMagic.Scene({
-					triggerElement: "#origin",
-					duration: 800,
-					offset: 300 // 添加 offset，延迟一定距离触发
-				})
-					.setTween(tween)
-					.addIndicators() // 添加指示器（需要插件）
-					.addTo(controller);
-			})();
-		</script>
+						// 创建 ScrollMagic 场景
+						var scene = new ScrollMagic.Scene({
+							triggerElement: "#chanliangid",
+							duration: 80,
+							// offset: 800
+						})
+							.setTween(tween)
+							.addIndicators() // 添加指示器（需要插件）
+							.addTo(controller);
+					})();
+				</script>
+				<img id="backgroundImage" src="img/s2_长背景图.svg" style="width: 100vw; transform: scale(1.12); transform-origin: center;">
+				
 
-		<div style="display: flex; justify-content: center; gap: 50vw; transform: translateY(-250px);">
-			<img class="chanliang" src="img/s2_面积产量.svg" style="width: 20vw">
-			<img class="chanliang" src="img/s2_洪水中大豆产量.svg" style="width: 20vw">
-		</div>
-		<script>
-			(function() {
-				// 初始化 ScrollMagic 控制器
-				var controller = new ScrollMagic.Controller();
-				// 创建 GSAP 动画，使用 stagger
-				var tween = gsap.fromTo(".chanliang", { opacity: 0 }, { opacity: 1, duration: 1, stagger: 0.5 });
+				<div style="height: 100vh;"></div>
+			</section>
 
-				// 创建 ScrollMagic 场景
-				var scene = new ScrollMagic.Scene({
-					triggerElement: "#origin",
-					duration: 100,
-					offset: 800
-				})
-					.setTween(tween)
-					.addIndicators() // 添加指示器（需要插件）
-					.addTo(controller);
-			})();
-		</script>
+			<section id="constraint" class="flex items-center justify-center">
+				<div style="height: 100vh;"></div>
+			</section>
 
-		<div style="height: 100vh;"></div>
-		</section>
+			<section id="transform" class="flex flex-col items-center justify-center">
+				<div style="height: 100vh;"></div>
+			</section>
 
-		<section id="constraint" class="flex items-center justify-center">
-			<div style="height: 100vh;"></div>
-		</section>
+			<section id="review" class="flex items-center justify-center">
+				<div style="height: 100vh;"></div>
+			</section>
 
-		<section id="transform" class="flex flex-col items-center justify-center">
-			<div style="height: 100vh;"></div>
-		</section>
-
-		<section id="review" class="flex items-center justify-center">
-			<div style="height: 100vh;"></div>
-		</section>
-
-		<section id="summary" class="flex items-center justify-center">
-			<div style="height: 100vh;"></div>
-		</section>
+			<section id="summary" class="flex items-center justify-center">
+				<div style="height: 100vh;"></div>
+			</section>
 		</div>
 		<footer
 			class="fixed bottom-0 w-full bg-black bg-opacity-80 backdrop-blur-sm opacity-0 transition-opacity duration-500">
@@ -284,7 +285,7 @@
 			const observerOptions = {
 				root: null,
 				rootMargin: '-20% 0px',
-				threshold: 0.1
+				threshold: 0.00001
 			};
 			// 创建观��器
 			const observer = new IntersectionObserver((entries) => {
