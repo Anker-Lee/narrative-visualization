@@ -255,6 +255,9 @@
 				</script>
 
 				<div style="height: 100vh;"></div>
+				<div class="fullscreen_overlay" 
+					 style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; background-color: black; opacity: 0; z-index: 0;">
+				</div>
 
 				<img id="rain" class="scroll-image" src="img/s2_下雨.svg" alt="下雨"
 					style="width: 900px; transform: translate(-500px, -300px);">
@@ -347,12 +350,35 @@
 				<div style="height: 0vh;"></div>
 				<img class="line_3 line" src="img/s3_title.svg" alt="帮扶" style="width: 40vw; opacity: 0;">
 				<div style="height: 50vh;"></div>
-				<!-- <img class="fullscreen_img" src="img/s3_全屏.png" alt="全屏背景" 
-				style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; object-fit: cover; 
-				opacity: 0; z-index: 0;"> -->
-				<div class="fullscreen_overlay" 
+				<div id="s3fullscreen_overlay" 
 					 style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; background-color: black; opacity: 0; z-index: 0;">
 				</div>
+				<script>
+				(function() {
+					var controller = new ScrollMagic.Controller();
+					
+					// 创建全屏图片的淡入淡出动画
+					var tween = gsap.timeline()
+						.fromTo("#s3fullscreen_overlay", 
+							{ opacity: 0 }, 
+							{ opacity: 1, duration: 1.5 }  // 较慢的淡入
+						)
+						.to("#s3fullscreen_overlay", 
+							{ opacity: 0, duration: 1.5 },  // 较慢的淡出
+							"+=3"  // 停留3秒后开始淡出
+						);
+
+					// 创建场景，比工厂图片先出现，后消失
+					var scene = new ScrollMagic.Scene({
+						triggerElement: "#s2fullscreen_overlay",
+						duration: 4000,  // 较长的动画持续时间
+						offset: 800     // 比工厂图片提前出现
+					})
+						.setTween(tween)
+						.addIndicators({name: "全屏图片"}) // 开发时的指示器
+						.addTo(controller);
+				})();
+			</script>
 				<div style="display: flex; justify-content: space-between; width: 100%;">
 					<div style="width: 50%; display: flex; align-items: center; position: relative;">
 						<img class="factory_img" src="img/s3_工厂.png" alt="工厂图片" 
@@ -481,9 +507,34 @@
 					<img class="garbage" src="img/s4垃圾堆.svg" alt="">
 					<img class="track" src="img/s4跑道.svg" alt="" style="transform: translateY(-500px);">
 					<div class="spicy-strips" style="display: flex; justify-content: space-between; width: 100%; gap: 8px; transform: translateY(-1300px);">
-						<img src="img/s4辣条左.svg" alt="" style="transform: translateX(200px);">
-						<img src="img/s4辣条中.svg" alt="" style="transform: translateY(200px);">
-						<img src="img/s4辣条右.svg" alt="" style="transform: translateX(-200px);">
+						<img id="spicy-strip-left" src="img/s4辣条左.svg" alt="" style="transform: translateX(200px);">
+						<img id="spicy-strip-center" src="img/s4辣条中.svg" alt="" style="transform: translateY(200px);">
+						<img id="spicy-strip-right" src="img/s4辣条右.svg" alt="" style="transform: translateX(-200px);">
+						<script>
+							gsap.to("#spicy-strip-left", {
+								y: -50,
+								duration: 1,
+								repeat: -1,
+								yoyo: true,
+								ease: "power1.inOut"
+							});
+							gsap.to("#spicy-strip-center", {
+								y: 50,
+								duration: 1,
+								repeat: -1,
+								yoyo: true,
+								ease: "power1.inOut",
+								delay: 0.5
+							});
+							gsap.to("#spicy-strip-right", {
+								y: -50,
+								duration: 1,
+								repeat: -1,
+								yoyo: true,
+								ease: "power1.inOut",
+								delay: 1
+							});
+						</script>
 					</div>
 					<img class="tv" src="img/s4电视.svg" alt="" style="transform: translateY(-1200px);">
 					<script>
@@ -493,7 +544,7 @@
 
 							// 创建 GSAP 动画
 							var tween = gsap.timeline();
-							tween.to(".garbage", { y: -100, duration: 2 })
+							tween.to(".garbage", { y: 2000, opacity: 0, duration: 2 })
 								.to(".track", { y: -600, duration: 1.5 }, 0)
 								.to(".spicy-strips", { y: -1600, duration: 1 }, 0)
 								.to(".tv", { y: -1600, duration: 0.5 }, 0);
@@ -501,8 +552,8 @@
 							// 创建 ScrollMagic 场景
 							var scene = new ScrollMagic.Scene({
 								triggerElement: "#lajidui",
-								duration: 500,  // 动画持续的滚动距离
-								offset: 400     // 开始的偏移量
+								duration: 1000,  // 动画持续的滚动距离
+								offset: 800     // 开始的偏移量
 							})
 								.setTween(tween)
 								.addIndicators({name: "垃圾堆"}) // 开发时可以保留，上线前删除
