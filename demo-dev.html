@@ -14,7 +14,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/BezierPlugin.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug// .addIndicators.min.js"></script>
 
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
@@ -130,7 +130,7 @@
 	<nav class="fixed top-0 w-full bg-black bg-opacity-80 backdrop-blur-sm z-50">
 		<div class="container mx-auto px-6 py-4">
 			<div class="flex justify-between items-center">
-				<div class="text-2xl font-bold">我，辣条</div>
+				<div class="text-2xl font-bold">辣条正传</div>
 				<div class="hidden md:flex space-x-8">
 					<a href="#intro" class="hover:text-custom transition-colors">Introduction</a>
 					<a href="#origin" class="hover:text-custom transition-colors">诞生</a>
@@ -193,18 +193,18 @@
 							offset: 600
 						})
 							.setTween(tween)
-							.addIndicators() // 添加指示器（需要插件）
+							// .addIndicators() // 添加指示器（需要插件）
 							.addTo(controller);
 					})();
 				</script>
 				<div style="height: 50vh;"></div>
-				<div class="line line_1">我，一根辣条</div>
-				<div class="line line_1">那在便利店、街头小摊以及学校随处可见的平凡零食</div>
-				<div class="line line_1">我已经成为了人们生活中的一部分</div>
-				<div class="line line_1">无论是在课间休息时的解馋，还是在忙碌工作中的片刻放松</div>
-				<div class="line line_1">然而，谁又能想到</div>
-				<div class="line">一根辣条，曾左右一个地方的脱贫致富</div>
-				<div class="line">甚至带动一个企业的上市</div>
+				<div class="line line_1" id="line_1_1" style="opacity: 1;">我，一根辣条</div>
+				<div class="line line_1" id="line_1_2" style="opacity: 0;">那在便利店、街头小摊以及学校随处可见的平凡零食</div>
+				<div class="line line_1" id="line_1_3" style="opacity: 0;">我已经成为了人们生活中的一部分</div>
+				<div class="line line_1" id="line_1_4" style="opacity: 0;">无论是在课间休息时的解馋，还是在忙碌工作中的片刻放松</div>
+				<div class="line line_1" id="line_1_5" style="opacity: 0;">然而，谁又能想到</div>
+				<div class="line line_1" id="line_1_6" style="opacity: 0;">一根辣条，曾左右一个地方的脱贫致富</div>
+				<div class="line line_1" id="line_1_7" style="opacity: 0;">甚至带动一个企业的上市</div>
 
 				<script>
 					(function () {
@@ -213,18 +213,17 @@
 
 						// 使用 GSAP 的 staggerFromTo 创建动画
 						var tween = gsap.timeline();
-						tween.fromTo(".line_1", { opacity: 0 }, { opacity: 1, duration: 1, stagger: 0.5 })
+						tween.to(".line_1", { opacity: 1, duration: 1, stagger: 0.5 })
 							.to(".line_1", { opacity: 0, duration: 1, stagger: 0.5, delay: 0.5 }, 0.5)
-
 
 						// 创建 ScrollMagic 场景
 						var scene = new ScrollMagic.Scene({
-							triggerElement: "#intro",
-							duration: 400,
-							offset: 300 // 添加 offset，延迟一定距离触发
+							triggerElement: "#line_1_1",
+							duration: 600,
+							offset: 4 // 添加 offset，延迟一定距离触发
 						})
 							.setTween(tween)
-							.addIndicators() // 添加指示器（需要插件）
+							// .addIndicators() // 添加指示器（需要插件）
 							.addTo(controller);
 					})();
 				</script>
@@ -247,7 +246,7 @@
 								offset: 500
 							})
 								.setTween(tween)
-								.addIndicators() // 添加指示器（需要插件）
+								// .addIndicators() // 添加指示器（需要插件）
 								.addTo(controller);
 						})();
 					</script>
@@ -257,7 +256,7 @@
 				<img src="img/s1_title.png" alt="辣条正传" style="width: 200vw; z-index: 999;">
 				<img src="img/s1_xiaola.gif" alt="s1_xiaola style=" width: 40vw; margin-top: -150px; z-index: 1;">
 				<img src="img/s1_intro.svg" alt="字1" style="width: 120vw;" class="min-w-screen">
-				<div style="height: 100vh;"></div>
+				<!-- <div style="height: 100vh;"></div> -->
 			</section>
 
 			<section id="origin" class="flex flex-col items-center justify-center">
@@ -328,7 +327,7 @@
 								triggerElement: "#rain",
 							})
 								.setTween(tween)
-								.addIndicators() // 添加指示器（需要插件）
+								// .addIndicators() // 添加指示器（需要插件）
 								.addTo(controller);
 
 							scene.on("enter", function () {
@@ -379,7 +378,7 @@
 								offset: 0 // 添加 offset，延迟一定距离触发
 							})
 								.setTween(tween)
-								.addIndicators() // 添加指示器（需要插件）
+								// .addIndicators() // 添加指示器（需要插件）
 								.addTo(controller);
 						})();
 					</script>
@@ -426,7 +425,7 @@
 							triggerHook: 0.9
 						})
 							.setTween(tween)
-							.addIndicators() // 添加指示器（需要插件）
+							// .addIndicators() // 添加指示器（需要插件）
 							.addTo(controller);
 
 						scene.on("enter", function () {
@@ -452,7 +451,7 @@
 							offset: 0 // 添加 offset，延迟一定距离触发
 						})
 							.setTween(tween)
-							.addIndicators() // 添加指示器（需要插件）
+							// .addIndicators() // 添加指示器（需要插件）
 							.addTo(controller);
 					})();
 					(function () {
@@ -470,7 +469,7 @@
 							offset: 0 // 添加 offset，延迟一定距离触发
 						})
 							.setTween(tween)
-							.addIndicators() // 添加指示器（需要插件）
+							// .addIndicators() // 添加指示器（需要插件）
 							.addTo(controller);
 					})();
 				</script>
@@ -490,7 +489,7 @@
 							// offset: 800
 						})
 							.setTween(tween)
-							.addIndicators() // 添加指示器（需要插件）
+							// .addIndicators() // 添加指示器（需要插件）
 							.addTo(controller);
 					})();
 				</script>
@@ -507,7 +506,7 @@
 							offset: 200
 						})
 							.setTween(tween)
-							.addIndicators() // 添加指示器（需要插件）
+							// .addIndicators() // 添加指示器（需要插件）
 							.addTo(controller);
 					})();
 				</script>
@@ -524,7 +523,7 @@
 							duration: 200
 						})
 							.setTween(tween)
-							.addIndicators() // 添加指示器（需要插件）
+							// .addIndicators() // 添加指示器（需要插件）
 							.addTo(controller);
 					})();
 				</script>
@@ -552,7 +551,7 @@
 							duration: 200
 						})
 							.setTween(tween)
-							.addIndicators() // 添加指示器（需要插件）
+							// .addIndicators() // 添加指示器（需要插件）
 							.addTo(controller);
 					})();
 				</script>
@@ -569,7 +568,7 @@
 				<div style="height: 80vh;"></div>
 				<!-- 背景图片 -->
 				<div class="fullscreen_overlay"
-					style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; background-color: black; opacity: 0; z-index: 0;">
+					style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; background-color: black; display: none; z-index: 0;">
 				</div>
 				<div style="display: flex; justify-content: space-between; width: 100%;z-index: 1;">
 					<div style="width: 50%; display: flex; align-items: center; position: relative;">
@@ -617,7 +616,7 @@
 							offset: -300 // 添加 offset，延迟一定距离触发
 						})
 							.setTween(tween)
-							.addIndicators() // 添加指示器（需要插件）
+							// .addIndicators() // 添加指示器（需要插件）
 							.addTo(controller);
 					})();
 
@@ -645,7 +644,7 @@
 								offset: -300      // 提前触发的距离
 							})
 								.setTween(tween)
-								.addIndicators() // 开发时可以保留，上线前删除
+								// .addIndicators() // 开发时可以保留，上线前删除
 								.addTo(controller);
 						});
 					})();
@@ -672,7 +671,7 @@
 							offset: 1000     // 开始的偏移量
 						})
 							.setTween(tween)
-							.addIndicators() // 开发时可以保留，上线前删除
+							// .addIndicators() // 开发时可以保留，上线前删除
 							.addTo(controller);
 					})();
 
@@ -682,19 +681,19 @@
 						// build scenes for factory images
 						new ScrollMagic.Scene({ triggerElement: "#text1" })
 							.setClassToggle(".factory_img.factory_1", "active") // add class toggle for factory image 1
-							.addIndicators() // add indicators (requires plugin)
+							// .addIndicators() // add indicators (requires plugin)
 							.addTo(controller);
 						new ScrollMagic.Scene({ triggerElement: "#text2" })
 							.setClassToggle(".factory_img.factory_2", "active") // add class toggle for factory image 2
-							.addIndicators() // add indicators (requires plugin)
+							// .addIndicators() // add indicators (requires plugin)
 							.addTo(controller);
 						new ScrollMagic.Scene({ triggerElement: "#text3" })
 							.setClassToggle(".factory_img.factory_3", "active") // add class toggle for factory image 3
-							.addIndicators() // add indicators (requires plugin)
+							// .addIndicators() // add indicators (requires plugin)
 							.addTo(controller);
 						new ScrollMagic.Scene({ triggerElement: "#text4" })
 							.setClassToggle(".factory_img.factory_4", "active") // add class toggle for factory image 4
-							.addIndicators() // add indicators (requires plugin)
+							// .addIndicators() // add indicators (requires plugin)
 							.addTo(controller);
 					})();
 
@@ -704,9 +703,8 @@
 
 						// 创建全屏图片的淡入淡出动画
 						var tween = gsap.timeline()
-							.fromTo(".fullscreen_overlay",
-								{ opacity: 0 },
-								{ opacity: 1, duration: 1.5 }  // 较慢的淡入
+							.to(".fullscreen_overlay",
+								display // 较慢的淡入
 							)
 							.to(".fullscreen_overlay",
 								{ opacity: 0, duration: 1.5 },  // 较慢的淡出
@@ -720,7 +718,7 @@
 							offset: 800     // 比工厂图片提前出现
 						})
 							.setTween(tween)
-							.addIndicators({ name: "全屏图片" }) // 开发时的指示器
+							// .addIndicators({ name: "全屏图片" }) // 开发时的指示器
 							.addTo(controller);
 					})();
 				</script>
@@ -786,7 +784,7 @@
 								triggerHook: 0 // 触发点
 							})
 								.setTween("#dive_truck", { x: 900, y: 700, rotation: 540 }) // 使用 GSAP 动画
-								.addIndicators() // 添加指示器（可选）
+								// .addIndicators() // 添加指示器（可选）
 								.addTo(controller); // 将场景添加到控制器
 						})();
 					</script>
@@ -863,7 +861,7 @@
 								triggerHook: 0 // 触发点
 							})
 								.setTween("#pack_truck", { x: 1850, y: -100, rotation: 0 }) // 使用 GSAP 动画
-								.addIndicators() // 添加指示器（可选）
+								// .addIndicators() // 添加指示器（可选）
 								.addTo(controller); // 将场景添加到控制器
 						})();
 					</script>
@@ -975,7 +973,7 @@
 							})
 								.setTween(timeline) // 使用 GSAP 动画
 								.setPin("#target")
-								.addIndicators() // 添加指示器（可选）
+								// .addIndicators() // 添加指示器（可选）
 								.addTo(controller); // 将场景添加到控制器
 
 							// 记录滚动距离
@@ -1006,7 +1004,7 @@
 						})();
 					</script>
 				</div>
-				<div style="height: 100vh;"></div>
+				<!-- <div style="height: 100vh;"></div> -->
 
 
 
@@ -1078,7 +1076,7 @@
 								offset: 1500     // 开始的偏移量
 							})
 								.setTween(tween)
-								.addIndicators({ name: "垃圾堆" }) // 开发时可以保留，上线前删除
+								// .addIndicators({ name: "垃圾堆" }) // 开发时可以保留，上线前删除
 								.addTo(controller);
 						})();
 					</script>
@@ -1087,15 +1085,20 @@
 					<img src="img/s4line03.svg">
 				</div>
 				<div id="tv_box"
-					style="z-index: 0; width:100%; border:2px solid red; position: relative; height: 15800px;">
+					style="z-index: 0; width:100%; border:2px solid red; position: relative; height: 15000px;">
 					<img src="img/s4line04.svg" style=" width:99%; position: absolute; top: 0; left: 0;">
-					<img src="img/s4_电视框.svg"
-						style=" width:80%; position: absolute; top: 13000px; left: 50%; transform: translateX(-50%);">
-					<img src="img/s4_电视框.svg"
-						style=" width:80%; position: absolute; top: 14000px; left: 50%; transform: translateX(-50%);">
+					<img src="img/s4_电视框1.svg"
+						style=" width:80%; position: absolute; top: 11800px; left: 50%; transform: translateX(-50%);">
+					<img src="img/s4_电视框2.svg"
+						style=" width:80%; position: absolute; top: 12800px; left: 50%; transform: translateX(-50%);">
+					<img src="img/s4_穿衣服.gif" style=" width:64%; position: absolute; top: 12120px; left: 50%; transform: translateX(-50%);">
+					<img src="img/s4_车间.gif" style=" width:64%; position: absolute; top: 13120px; left: 50%; transform: translateX(-50%);">
+					<img src="img/s4_line04.png" style=" width:50%; position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">
+				</div>
+				<div style="z-index: 0;">
 				</div>
 
-				<div style="height: 100vh;"></div>
+				<!-- <div style="height: 100vh;"></div> -->
 			</section>
 
 			<!-- 来一场主动的破局 -->
@@ -1145,7 +1148,7 @@
 							triggerHook: 0.5 // 触发点在视口中间
 						})
 							.setTween(tween) // 将 GSAP 动画绑定到场景
-							.addIndicators({ name: "动画触发" }) // 添加指示器用于调试
+							// .addIndicators({ name: "动画触发" }) // 添加指示器用于调试
 							.addTo(controller); // 将场景添加到控制器
 					})();
 				</script>
@@ -1153,17 +1156,17 @@
 				<div style="height: 100px;"></div>
 				<img src="img/s5_饼图和鲨鱼.svg">
 				<div style="height: 100px;"></div>
-				<div style="height: 2500px; width:100%; border:1px solid red; position: relative;">
+				<div style="height: 3500px; width:100%; border:1px solid red; position: relative;">
 					<img src="img/s5_黑影时间线.svg"
 						style=" width:100%; position: absolute; top: 0; left: 50%; transform: translateX(-50%);">
 					<img class="fade-image" src="img/s5_辣条带货.svg"
 						style=" width:48%; position: absolute; top: 0; left: 0;">
 					<img class="fade-image" src="img/s5_县长辣条.svg"
-						style=" width:48%; position: absolute; top: 500px; right: 100px;">
+						style=" width:48%; position: absolute; top: 750px; right: 20px;">
 					<img class="fade-image" src="img/s5_辣椒箱.svg"
-						style=" width:48%; position: absolute; bottom: 750px; left: 0;">
+						style=" width:48%; position: absolute; top: 1600px; left: 10px;">
 					<img class="fade-image" src="img/s5_辣条博物馆.svg"
-						style=" width:48%; position: absolute; bottom: -30px; right: 30px;">
+						style=" width:50%; position: absolute; top: 2520px; right: 10px;">
 					<script>
 						(function () {
 							// 创建 ScrollMagic 控制器
@@ -1177,16 +1180,16 @@
 								triggerElement: "img[src='img/s5_黑影时间线.svg']", // 触发动画的元素
 							})
 								.setTween(tween) // 将 GSAP 动画绑定到场景
-								.addIndicators({ name: "动画触发" }) // 添加指示器用于调试
+								// .addIndicators({ name: "动画触发" }) // 添加指示器用于调试
 								.addTo(controller); // 将场景添加到控制器
 						})();
 					</script>
 				</div>
-				<img src="img/s5_地图.svg">
+				<img src="img/s5_地图.png">
 
 
 				<!-- </div> -->
-				<div style="height: 100vh;"></div>
+				<!-- <div style="height: 100vh;"></div> -->
 			</section>
 
 			<section id="summary" class="flex flex-col items-center justify-center">
